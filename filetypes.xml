@@ -1,0 +1,10 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping pattern="python" type="Native" />
+      <mapping pattern="py" type="PLAIN_TEXT" />
+      <mapping ext="mp3" type="PLAIN_TEXT" />
+      <mapping pattern="img" type="XML" />
+    </extensionMap>
+  </component>
+</application>
