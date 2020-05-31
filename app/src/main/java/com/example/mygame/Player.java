@@ -1,43 +1,64 @@
 package com.example.mygame;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 
 import androidx.core.content.ContextCompat;
 
-class Player {
-private  float x=50;
-private  float y=50;
-private  float  z=50;
+import java.util.ArrayList;
 
-///we want canvas of draw method which comes from canvas declared in gameloop method   hence all canvas are same
+class Player {
+    public static float x = 500;
+    public static float y = 500;
+    //ArrayList<fire> bullets = new ArrayList<fire>()
+    private float z = 50;
+
     Context context;
-//Canvas canvas;
-            Player(Gameclass gc) {
-        this.context=gc.getContext();
-       // this.canvas=canvas;
+    public Bitmap bitmapp;
+
+    Player(Gameclass gc) {
+        this.context = gc.getContext();
+
     }
 
-    Paint paint =new Paint();
+    Paint paint = new Paint();
 
-//
-//    public void update() {
-//
-//
-//        setPos(x,y);
-//   }
 
-    public void setPos(float x, float y) {
-    this.x=x;
-    this.y=y;
+    public static void moving() {
+
+
+        x = x + (RishitController.deltaX);
+        y = y + (RishitController.deltaY);
     }
 
 
     public void drawing(Canvas canvas) {
-        int ink= ContextCompat.getColor(context,R.color.colorAccent);
-        paint.setColor(ink);
-        canvas.drawCircle( x, y, z,paint);
+        try {
+            bitmapp = BitmapFactory.decodeResource(context.getResources(), R.drawable.fighter);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("two", "in initialising bitmap");
+        }
+
+//
+//          Gameloop.shootX= (int) x;
+//          Gameloop.shootY=(int)y;
+        try {
+            canvas.drawBitmap(bitmapp, x, y, null);
+
+            //Log.d("pink", "xpink : " + x);
+        } catch (Exception e) {
+            canvas.drawCircle(x, y, z, paint);
+            e.printStackTrace();
+            Log.d("one", "in draw bitmap");
+        }
+
 
     }
 

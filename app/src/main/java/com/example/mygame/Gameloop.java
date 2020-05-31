@@ -1,54 +1,63 @@
 package com.example.mygame;
 
-import android.content.Context;
+
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 
-class Gameloop extends Thread{
+
+class Gameloop extends Thread {
+
     Boolean running;
-//Canvas canvas;
-SurfaceHolder surfaceHolder;
-Gameclass gameclass;
-  Canvas canvasRishit;
+
+    SurfaceHolder surfaceHolder;
+    Gameclass gameclass;
+    Canvas canvasRishit;
+    static int noOfMovements;
     public Gameloop(Gameclass gameclass, SurfaceHolder surfaceHolder) {
-   this.gameclass=gameclass;
-    this.surfaceHolder=surfaceHolder;
-//this.gameclass.canvas=canvas;
+        this.gameclass = gameclass;
+        this.surfaceHolder = surfaceHolder;
     }
-//
-//    public Gameloop(SurfaceView surfaceView, SurfaceHolder surfaceHolder) {
-//        this.canvas=canvas;
-//        this.surfaceHolder=surfaceHolder;
-//
-//    }
 
     public void setRunning(Boolean running) {
         this.running = running;
 
     }
-
-
+//   static float  shootX = Player.x;
+//
+//    static  float shootY = Player.y;
+//
+//    public static void update() {
+//         //  shootX = Player.x;
+//
+//          shootY = Player.y;
+//    }
     @Override
     public void run() {
         super.run();
 
-    while(running){
+        while (running) {
+            noOfMovements++;
+//shootX++;
 
-  canvasRishit=surfaceHolder.lockCanvas();
-gameclass.draw(canvasRishit);
-//gameclass.update();
-surfaceHolder.unlockCanvasAndPost(canvasRishit);
+            try {
+                canvasRishit = surfaceHolder.lockCanvas();
+                gameclass.draw(canvasRishit);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
+            try {
+                surfaceHolder.unlockCanvasAndPost(canvasRishit);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
-
-
+        }
 
 
     }
 
 
-    }
 }

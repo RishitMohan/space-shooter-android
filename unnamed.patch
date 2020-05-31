@@ -1,0 +1,1142 @@
+Index: app/src/main/java/com/example/mygame/fire.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mygame/fire.java	(date 1588744839203)
++++ app/src/main/java/com/example/mygame/fire.java	(date 1588744839203)
+@@ -0,0 +1,62 @@
++package com.example.mygame;
++
++import android.graphics.Canvas;
++import android.graphics.Color;
++import android.graphics.Paint;
++import android.os.CountDownTimer;
++import android.os.Handler;
++import android.util.Log;
++
++import androidx.core.content.ContextCompat;
++
++public class fire {
++    public float fireX, fireY;
++
++    // constructor
++    fire(float x, float y) {
++        //Gameloop.update();
++        fireX = x;
++        fireY = y;
++        //y=Player.y;
++    }
++
++    Paint paint = new Paint();
++ public static Boolean bmw=true;
++    public void drawingBullets(Canvas canvas) {
++//if(Gameloop.noOfMovements<13390) {
++
++
++
++
++        paint.setColor(Color.WHITE);
++
++
++        fireX=fireX+15;
++
++        //int ink = ContextCompat.getColor( R.color.colorPrimary);
++if(fireX<1000)
++        canvas.drawCircle((fireX+60), (fireY+30), 10, paint);
++       // canvas.drawCircle(fireX, (fireY), 10, paint);
++        Log.d("mm","x is"+ fireX);
++
++
++    }
++
++public void reset   (){
++
++    if(fireX>25000)
++    {
++        bmw=false;
++      fireX=Player.x;
++      fireY=Player.y;
++bmw=true;
++
++
++
++    }
++}
++
++
++
++
++}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1585564205021)
++++ .idea/vcs.xml	(date 1585564205021)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: _windows/git.xml
+===================================================================
+--- _windows/git.xml	(date 1588745719000)
++++ _windows/git.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="Git.Application.Settings">
+-    <option name="myPathToGit" value="C:\Program Files\Git\bin\git.exe" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: _windows/keymap.xml
+===================================================================
+--- _windows/keymap.xml	(date 1588745719000)
++++ _windows/keymap.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="KeymapManager">
+-    <active_keymap name="Default Proper Redo" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: _windows/laf.xml
+===================================================================
+--- _windows/laf.xml	(date 1588745719000)
++++ _windows/laf.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="LafManager">
+-    <laf class-name="com.intellij.ide.ui.laf.darcula.DarculaLaf" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: _windows/path.macros.xml
+===================================================================
+--- _windows/path.macros.xml	(date 1588745719000)
++++ _windows/path.macros.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="PathMacrosImpl">
+-    <macro name="KOTLIN_BUNDLED" value="C:\Program Files\Android\Android Studio1\plugins\Kotlin\kotlinc" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: codestyles/Default.xml
+===================================================================
+--- codestyles/Default.xml	(date 1588745719000)
++++ codestyles/Default.xml	(date 1588745719000)
+@@ -1,117 +0,0 @@
+-<code_scheme name="Default" version="173">
+-  <AndroidXmlCodeStyleSettings>
+-    <option name="ARRANGEMENT_SETTINGS_MIGRATED_TO_191" value="true" />
+-  </AndroidXmlCodeStyleSettings>
+-  <codeStyleSettings language="XML">
+-    <indentOptions>
+-      <option name="CONTINUATION_INDENT_SIZE" value="4" />
+-    </indentOptions>
+-    <arrangement>
+-      <rules>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>xmlns:android</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>^$</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>xmlns:.*</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>^$</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-            <order>BY_NAME</order>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>.*:id</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>.*:name</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>name</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>^$</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>style</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>^$</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>.*</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>^$</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-            <order>BY_NAME</order>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>.*</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-            <order>ANDROID_ATTRIBUTE_ORDER</order>
+-          </rule>
+-        </section>
+-        <section>
+-          <rule>
+-            <match>
+-              <AND>
+-                <NAME>.*</NAME>
+-                <XML_ATTRIBUTE />
+-                <XML_NAMESPACE>.*</XML_NAMESPACE>
+-              </AND>
+-            </match>
+-            <order>BY_NAME</order>
+-          </rule>
+-        </section>
+-      </rules>
+-    </arrangement>
+-  </codeStyleSettings>
+-</code_scheme>
+\ No newline at end of file
+Index: keymaps/Default Proper Redo.xml
+===================================================================
+--- keymaps/Default Proper Redo.xml	(date 1588745719000)
++++ keymaps/Default Proper Redo.xml	(date 1588745719000)
+@@ -1,22 +0,0 @@
+-<keymap version="1" name="Default Proper Redo" parent="$default">
+-  <action id="$Redo">
+-    <keyboard-shortcut first-keystroke="shift ctrl z" />
+-    <keyboard-shortcut first-keystroke="shift alt back_space" />
+-    <keyboard-shortcut first-keystroke="ctrl y" />
+-  </action>
+-  <action id="ActivateLogcatToolWindow">
+-    <keyboard-shortcut first-keystroke="alt 6" />
+-  </action>
+-  <action id="ActivateTODOToolWindow" />
+-  <action id="EditorDeleteLine" />
+-  <action id="ToggleFullScreen">
+-    <mouse-shortcut keystroke="control button143" />
+-  </action>
+-  <action id="UpdateRunningApplication" />
+-  <action id="android.deploy.ApplyChanges">
+-    <keyboard-shortcut first-keystroke="ctrl f10" />
+-  </action>
+-  <action id="android.deploy.CodeSwap">
+-    <keyboard-shortcut first-keystroke="ctrl alt f10" />
+-  </action>
+-</keymap>
+\ No newline at end of file
+Index: androidEditors.xml
+===================================================================
+--- androidEditors.xml	(date 1588745719000)
++++ androidEditors.xml	(date 1588745719000)
+@@ -1,9 +0,0 @@
+-<application>
+-  <component name="AndroidEditors">
+-    <option name="state">
+-      <GlobalState>
+-        <option name="visible" value="false" />
+-      </GlobalState>
+-    </option>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: androidStudioFirstRun.xml
+===================================================================
+--- androidStudioFirstRun.xml	(date 1588745719000)
++++ androidStudioFirstRun.xml	(date 1588745719000)
+@@ -1,8 +0,0 @@
+-<application>
+-  <component name="AndroidFirstRunPersistentData">
+-    <version>1</version>
+-  </component>
+-  <component name="whatsNew">
+-    <shownVersion>3.5.3</shownVersion>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: baseRefactoring.xml
+===================================================================
+--- baseRefactoring.xml	(date 1588745719000)
++++ baseRefactoring.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="RefactoringSettings">
+-    <option name="INTRODUCE_LOCAL_CREATE_FINALS" value="false" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: colors.scheme.xml
+===================================================================
+--- colors.scheme.xml	(date 1588745719000)
++++ colors.scheme.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="EditorColorsManagerImpl">
+-    <global_color_scheme name="_@user_Darcula" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: debugger.xml
+===================================================================
+--- debugger.xml	(date 1588745719000)
++++ debugger.xml	(date 1588745719000)
+@@ -1,98 +0,0 @@
+-<application>
+-  <component name="DebuggerSettings">
+-    <option name="WATCH_RETURN_VALUES" value="true" />
+-    <filter>
+-      <option name="PATTERN" value="com.sun.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="java.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="javax.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="org.omg.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="sun.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="jdk.internal.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="junit.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="com.intellij.rt.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="com.yourkit.runtime.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="com.springsource.loaded.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="org.springsource.loaded.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="javassist.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="org.apache.webbeans.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="com.ibm.ws.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-    <filter>
+-      <option name="PATTERN" value="kotlin.*" />
+-      <option name="ENABLED" value="true" />
+-      <option name="INCLUDE" value="true" />
+-    </filter>
+-  </component>
+-  <component name="XDebuggerSettings">
+-    <data-views />
+-    <general>
+-      <unmute-on-stop>true</unmute-on-stop>
+-    </general>
+-    <debuggers>
+-      <debugger id="ObjectiveC">
+-        <configuration>
+-          <option name="VALUES_FILTER_ENABLED" value="false" />
+-        </configuration>
+-      </debugger>
+-      <debugger id="kotlin_debugger">
+-        <configuration>
+-          <option name="DEBUG_IS_FILTER_FOR_STDLIB_ALREADY_ADDED" value="true" />
+-        </configuration>
+-      </debugger>
+-    </debuggers>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: editor.xml
+===================================================================
+--- editor.xml	(date 1588745719000)
++++ editor.xml	(date 1588745719000)
+@@ -1,8 +0,0 @@
+-<application>
+-  <component name="DefaultFont">
+-    <option name="FONT_SIZE" value="20" />
+-  </component>
+-  <component name="EditorSettings">
+-    <option name="USE_SOFT_WRAPS" value="" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: filetypes.xml
+===================================================================
+--- filetypes.xml	(date 1588745719000)
++++ filetypes.xml	(date 1588745719000)
+@@ -1,10 +0,0 @@
+-<application>
+-  <component name="FileTypeManager" version="17">
+-    <extensionMap>
+-      <mapping pattern="python" type="Native" />
+-      <mapping pattern="py" type="PLAIN_TEXT" />
+-      <mapping ext="mp3" type="PLAIN_TEXT" />
+-      <mapping pattern="img" type="XML" />
+-    </extensionMap>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: find.xml
+===================================================================
+--- find.xml	(date 1588745719000)
++++ find.xml	(date 1588745719000)
+@@ -1,11 +0,0 @@
+-<application>
+-  <component name="FindSettings">
+-    <option name="customScope" value="Project 'MyGame'" />
+-    <option name="defaultScopeName" value="Project 'MyGame'" />
+-    <option name="showResultsInSeparateView" value="true" />
+-    <option name="skipResultsWithOneUsage" value="true" />
+-    <option name="SKIP_RESULTS_WHEN_ONE_USAGE" value="true" />
+-    <option name="SHOW_RESULTS_IN_SEPARATE_VIEW" value="true" />
+-    <option name="SEARCH_SCOPE" value="Project 'MyGame'" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: github.xml
+===================================================================
+--- github.xml	(date 1588745719000)
++++ github.xml	(date 1588745719000)
+@@ -1,7 +0,0 @@
+-<application>
+-  <component name="GithubAccounts">
+-    <account id="60d0ad6e-5656-4448-9ce0-125d8cf52b84" name="rishitmohan@gmail.com">
+-      <server host="github.com" />
+-    </account>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: intentionSettings.xml
+===================================================================
+--- intentionSettings.xml	(date 1588745719000)
++++ intentionSettings.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="IntentionManagerSettings">
+-    <ignoreAction name="Android/Override Resource in Other Configuration..." />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: jdk.table.xml
+===================================================================
+--- jdk.table.xml	(date 1588745719000)
++++ jdk.table.xml	(date 1588745719000)
+@@ -1,104 +0,0 @@
+-<application>
+-  <component name="ProjectJdkTable">
+-    <jdk version="2">
+-      <name value="1.8" />
+-      <type value="JavaSDK" />
+-      <version value="java version &quot;1.8.0_202&quot;" />
+-      <homePath value="$APPLICATION_HOME_DIR$/jre" />
+-      <roots>
+-        <annotationsPath>
+-          <root type="composite">
+-            <root url="jar://$APPLICATION_HOME_DIR$/lib/jdkAnnotations.jar!/" type="simple" />
+-          </root>
+-        </annotationsPath>
+-        <classPath>
+-          <root type="composite">
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/charsets.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/access-bridge-64.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/cldrdata.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/dnsns.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/jaccess.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/localedata.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/nashorn.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/sunec.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/sunjce_provider.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/sunmscapi.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/sunpkcs11.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/ext/zipfs.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/jce.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/jsse.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/management-agent.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/resources.jar!/" type="simple" />
+-            <root url="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/rt.jar!/" type="simple" />
+-          </root>
+-        </classPath>
+-        <javadocPath>
+-          <root type="composite">
+-            <root url="https://docs.oracle.com/javase/8/docs/api/" type="simple" />
+-          </root>
+-        </javadocPath>
+-        <sourcePath>
+-          <root type="composite" />
+-        </sourcePath>
+-      </roots>
+-      <additional />
+-    </jdk>
+-    <jdk version="2">
+-      <name value="Android API 29 Platform" />
+-      <type value="Android SDK" />
+-      <version value="java version &quot;1.8.0_202&quot;" />
+-      <homePath value="C:\Users\rishit\AppData\Local\Android\Sdk" />
+-      <roots>
+-        <annotationsPath>
+-          <root type="composite">
+-            <root url="jar://$APPLICATION_HOME_DIR$/plugins/android/lib/androidAnnotations.jar!/" type="simple" />
+-          </root>
+-        </annotationsPath>
+-        <classPath>
+-          <root type="composite">
+-            <root url="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/" type="simple" />
+-            <root url="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/data/res" type="simple" />
+-          </root>
+-        </classPath>
+-        <javadocPath>
+-          <root type="composite">
+-            <root url="http://developer.android.com/reference/" type="simple" />
+-          </root>
+-        </javadocPath>
+-        <sourcePath>
+-          <root type="composite">
+-            <root url="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29" type="simple" />
+-          </root>
+-        </sourcePath>
+-      </roots>
+-      <additional jdk="1.8" sdk="android-29" />
+-    </jdk>
+-    <jdk version="2">
+-      <name value="Android API 23 Platform" />
+-      <type value="Android SDK" />
+-      <homePath value="C:\Users\rishit\AppData\Local\Android\Sdk" />
+-      <roots>
+-        <annotationsPath>
+-          <root type="composite">
+-            <root url="jar://$APPLICATION_HOME_DIR$/plugins/android/lib/androidAnnotations.jar!/" type="simple" />
+-          </root>
+-        </annotationsPath>
+-        <classPath>
+-          <root type="composite">
+-            <root url="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-23/android.jar!/" type="simple" />
+-            <root url="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-23/data/res" type="simple" />
+-          </root>
+-        </classPath>
+-        <javadocPath>
+-          <root type="composite">
+-            <root url="http://developer.android.com/reference/" type="simple" />
+-          </root>
+-        </javadocPath>
+-        <sourcePath>
+-          <root type="composite" />
+-        </sourcePath>
+-      </roots>
+-      <additional jdk="1.8" sdk="android-23" />
+-    </jdk>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: notifications.xml
+===================================================================
+--- notifications.xml	(date 1588745719000)
++++ notifications.xml	(date 1588745719000)
+@@ -1,5 +0,0 @@
+-<application>
+-  <component name="NotificationConfiguration">
+-    <notification groupId="Build sync orphan modules" displayType="NONE" shouldLog="false" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: project.default.xml
+===================================================================
+--- project.default.xml	(date 1588745719000)
++++ project.default.xml	(date 1588745719000)
+@@ -1,26 +0,0 @@
+-<application>
+-  <component name="ProjectManager">
+-    <defaultProject>
+-      <component name="PropertiesComponent">
+-        <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+-        <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+-      </component>
+-      <component name="masterDetails">
+-        <states>
+-          <state key="ProjectJDKs.UI">
+-            <settings>
+-              <last-edited>1.8</last-edited>
+-              <splitter-proportions>
+-                <option name="proportions">
+-                  <list>
+-                    <option value="0.2" />
+-                  </list>
+-                </option>
+-              </splitter-proportions>
+-            </settings>
+-          </state>
+-        </states>
+-      </component>
+-    </defaultProject>
+-  </component>
+-</application>
+\ No newline at end of file
+Index: ui.lnf.xml
+===================================================================
+--- ui.lnf.xml	(date 1588745719000)
++++ ui.lnf.xml	(date 1588745719000)
+@@ -1,7 +0,0 @@
+-<application>
+-  <component name="UISettings">
+-    <option name="OVERRIDE_NONIDEA_LAF_FONTS" value="true" />
+-    <option name="PIN_FIND_IN_PATH_POPUP" value="true" />
+-    <option name="PRESENTATION_MODE_FONT_SIZE" value="26" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: updates.xml
+===================================================================
+--- updates.xml	(date 1588745719000)
++++ updates.xml	(date 1588745719000)
+@@ -1,17 +0,0 @@
+-<application>
+-  <component name="UpdatesConfigurable">
+-    <enabledExternalComponentSources>
+-      <item value="Android SDK" />
+-    </enabledExternalComponentSources>
+-    <option name="externalUpdateChannels">
+-      <map>
+-        <entry key="Android SDK" value="Stable Channel" />
+-      </map>
+-    </option>
+-    <knownExternalComponentSources>
+-      <item value="Android SDK" />
+-    </knownExternalComponentSources>
+-    <option name="LAST_BUILD_CHECKED" value="AI-191.8026.42.35.6010548" />
+-    <option name="LAST_TIME_CHECKED" value="1588552031817" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: vcs.xml
+===================================================================
+--- vcs.xml	(date 1588745719000)
++++ vcs.xml	(date 1588745719000)
+@@ -1,13 +0,0 @@
+-<application>
+-  <component name="GitRememberedInputs">
+-    <option name="visitedUrls">
+-      <list>
+-        <UrlAndUserName>
+-          <option name="url" value="https://github.com/RishitMohan/dot.git" />
+-          <option name="userName" value="" />
+-        </UrlAndUserName>
+-      </list>
+-    </option>
+-    <option name="cloneParentDir" value="C:\Users\rishit\AndroidStudioProjects" />
+-  </component>
+-</application>
+\ No newline at end of file
+Index: app/src/main/java/com/example/mygame/Gameloop.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mygame/Gameloop.java	(date 1588745719000)
++++ app/src/main/java/com/example/mygame/Gameloop.java	(date 1588548882719)
+@@ -1,54 +1,63 @@
+ package com.example.mygame;
+ 
+-import android.content.Context;
++
+ import android.graphics.Canvas;
+ import android.view.SurfaceHolder;
+-import android.view.SurfaceView;
++
+ 
+-class Gameloop extends Thread{
++class Gameloop extends Thread {
++
+     Boolean running;
+-//Canvas canvas;
+-SurfaceHolder surfaceHolder;
+-Gameclass gameclass;
+-  Canvas canvasRishit;
++
++    SurfaceHolder surfaceHolder;
++    Gameclass gameclass;
++    Canvas canvasRishit;
++    static int noOfMovements;
+     public Gameloop(Gameclass gameclass, SurfaceHolder surfaceHolder) {
+-   this.gameclass=gameclass;
+-    this.surfaceHolder=surfaceHolder;
+-//this.gameclass.canvas=canvas;
++        this.gameclass = gameclass;
++        this.surfaceHolder = surfaceHolder;
+     }
+-//
+-//    public Gameloop(SurfaceView surfaceView, SurfaceHolder surfaceHolder) {
+-//        this.canvas=canvas;
+-//        this.surfaceHolder=surfaceHolder;
+-//
+-//    }
+ 
+     public void setRunning(Boolean running) {
+         this.running = running;
+ 
+     }
+-
+-
++//   static float  shootX = Player.x;
++//
++//    static  float shootY = Player.y;
++//
++//    public static void update() {
++//         //  shootX = Player.x;
++//
++//          shootY = Player.y;
++//    }
+     @Override
+     public void run() {
+         super.run();
+ 
+-    while(running){
++        while (running) {
++            noOfMovements++;
++//shootX++;
+ 
+-  canvasRishit=surfaceHolder.lockCanvas();
+-gameclass.draw(canvasRishit);
+-//gameclass.update();
+-surfaceHolder.unlockCanvasAndPost(canvasRishit);
+-
+-
++            try {
++                canvasRishit = surfaceHolder.lockCanvas();
++                gameclass.draw(canvasRishit);
++            } catch (Exception e) {
++                e.printStackTrace();
++            }
++
++
++            try {
++                surfaceHolder.unlockCanvasAndPost(canvasRishit);
++            } catch (Exception e) {
++                e.printStackTrace();
++            }
+ 
+ 
+-
+-
++        }
+ 
+ 
+     }
+ 
+ 
+-    }
+ }
+Index: app/src/main/java/com/example/mygame/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mygame/Player.java	(date 1588745719000)
++++ app/src/main/java/com/example/mygame/Player.java	(date 1588497155189)
+@@ -1,43 +1,64 @@
+ package com.example.mygame;
+ 
+ import android.content.Context;
++import android.content.res.Resources;
++import android.graphics.Bitmap;
++import android.graphics.BitmapFactory;
+ import android.graphics.Canvas;
+ import android.graphics.Paint;
++import android.util.Log;
+ 
+ import androidx.core.content.ContextCompat;
+ 
++import java.util.ArrayList;
++
+ class Player {
+-private  float x=50;
+-private  float y=50;
+-private  float  z=50;
++    public static float x = 500;
++    public static float y = 500;
++    //ArrayList<fire> bullets = new ArrayList<fire>()
++    private float z = 50;
+ 
+-///we want canvas of draw method which comes from canvas declared in gameloop method   hence all canvas are same
+     Context context;
+-//Canvas canvas;
+-            Player(Gameclass gc) {
+-        this.context=gc.getContext();
+-       // this.canvas=canvas;
++    public Bitmap bitmapp;
++
++    Player(Gameclass gc) {
++        this.context = gc.getContext();
++
+     }
+ 
+-    Paint paint =new Paint();
++    Paint paint = new Paint();
+ 
+-//
+-//    public void update() {
+-//
+-//
+-//        setPos(x,y);
+-//   }
++
++    public static void moving() {
+ 
+-    public void setPos(float x, float y) {
+-    this.x=x;
+-    this.y=y;
++
++        x = x + (RishitController.deltaX);
++        y = y + (RishitController.deltaY);
+     }
+ 
+ 
+     public void drawing(Canvas canvas) {
+-        int ink= ContextCompat.getColor(context,R.color.colorAccent);
+-        paint.setColor(ink);
+-        canvas.drawCircle( x, y, z,paint);
++        try {
++            bitmapp = BitmapFactory.decodeResource(context.getResources(), R.drawable.fighter);
++
++        } catch (Exception e) {
++            e.printStackTrace();
++            Log.d("two", "in initialising bitmap");
++        }
++
++//
++//          Gameloop.shootX= (int) x;
++//          Gameloop.shootY=(int)y;
++        try {
++            canvas.drawBitmap(bitmapp, x, y, null);
++
++            //Log.d("pink", "xpink : " + x);
++        } catch (Exception e) {
++            canvas.drawCircle(x, y, z, paint);
++            e.printStackTrace();
++            Log.d("one", "in draw bitmap");
++        }
++
+ 
+     }
+ 
+Index: app/src/main/java/com/example/mygame/Gameclass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mygame/Gameclass.java	(date 1588745719000)
++++ app/src/main/java/com/example/mygame/Gameclass.java	(date 1588554525318)
+@@ -1,45 +1,84 @@
+ package com.example.mygame;
+ 
+ import android.content.Context;
++
+ import android.graphics.Canvas;
++
++import android.graphics.Color;
++import android.graphics.Paint;
++import android.graphics.Typeface;
++
++import android.os.CountDownTimer;
++import android.os.Handler;
++import android.util.Log;
+ import android.view.MotionEvent;
++
+ import android.view.SurfaceHolder;
+ import android.view.SurfaceView;
+-import android.view.View;
++
++import java.util.ArrayList;
++import java.util.List;
++
+ 
+ class Gameclass extends SurfaceView implements SurfaceHolder.Callback {
+-Context context;
++    Context context;
++    RishitController rishitController;
+     Player player;
+- // Canvas canvas=draw(canvas);
++    //Canvas canvas1;
+     Gameloop gameloop;
+-    public Gameclass(Context context)// creating a parameterised constructor of gameview class  with context as parameter
+-    {   super(context);//it must be the first statement in the constructor body
++    Paint paint = new Paint();
++
++    public Gameclass(Context context) {
++        super(context);
+         SurfaceHolder surfaceHolder;
+-    surfaceHolder=getHolder();
++        surfaceHolder = getHolder();
+         surfaceHolder.addCallback(this);
+         //  super();
+-       this.context=context;
+-        player= new Player(this);
+-   gameloop= new Gameloop(this,surfaceHolder);
+-   setFocusable(true);
++        this.context = context;
++        rishitController = new RishitController(this);
++        player = new Player(this);
++        gameloop = new Gameloop(this, surfaceHolder);
++        setFocusable(true);
+     }
+ 
+-   @Override
++    @Override
+     public boolean onTouchEvent(MotionEvent event) {
+- switch(event.getAction()) {
+-     case MotionEvent.ACTION_DOWN:
+-case MotionEvent.ACTION_MOVE:
+-    player.setPos(event.getX(),event.getY());   ////mistake---|event|.getX()
+-    return true;
+-}
++        switch (event.getAction()) {
++
++
++            case MotionEvent.ACTION_DOWN:
++                if (RishitController.boundary(event.getX(), event.getY())) {
++                    RishitController.MovementAllowed = true;
++
++                }
++                return true;
++
++
++            case MotionEvent.ACTION_MOVE:
++
++                if (RishitController.MovementAllowed)
++
++
++                    rishitController.setVal(event);
++                return true;
++
++
++            case MotionEvent.ACTION_UP:
++
++                rishitController.reset();
++
++                return true;
++
++        }
+ 
+ 
+-return super.onTouchEvent(event);
++        return super.onTouchEvent(event);
+     }
+ 
+     @Override
+     public void surfaceCreated(SurfaceHolder holder) {
+ 
++
+         gameloop.setRunning(true);
+         gameloop.start();
+     }
+@@ -54,42 +93,78 @@
+ 
+     }
+ 
++    @Override
++    protected void onDraw(Canvas canvas) {
++        super.onDraw(canvas);
++    }
++
++  //  List<fire> bullets = new ArrayList<fire>();//fire[1000];
++ //bullets[1] = new fire(Player.x,Player.y);
++fire bullets =new fire(Player.x,Player.y);
++
+ 
+     @Override
+-    public void draw(Canvas canvas) {
++    public void draw( Canvas canvas) {
++
+         super.draw(canvas);
+-player.drawing(canvas);
+-    }
++
++        player.drawing(canvas);
++        rishitController.drawing(canvas);
++//update(canvas);
++
++        lakshmanRekha(canvas);
++//// bullet
++
++     //   bullets.add(new fire(Player.x,Player.y));
++//        fire finee = bullets.get(1);
+ //
+-//    public void update(){
+-//        player.update();
+-//    }
++    //  for(fire f: bullets){
++//while(fire.bmw) {
++  if(fire.bmw=true) {
++bullets.reset();
++      bullets.drawingBullets(canvas);
++  //fire.bmw=false;
++  }
++    //fire.bmw=false;
++ //  }
++      }
+ 
+ 
+ 
+ 
+ 
++    public void lakshmanRekha(Canvas canvas) {
++        paint.setColor(Color.RED);
++        paint.setStrokeWidth(10);
++        paint.setStyle(Paint.Style.STROKE);
++        canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), paint);
+ 
+ 
++        paint.setTextAlign(Paint.Align.CENTER);
++        paint.setTextSize(50);
+ 
++        paint.setTypeface(Typeface.MONOSPACE);
++        paint.setTextScaleX((float) 1.5);
++        //canvas.save();
++        canvas.rotate(-90f, 500, 500);
++        canvas.drawText("A T T A C K !", getWidth() / 2, ((getHeight() / 2) + 300), paint);
++        canvas.rotate(90f, 500, 500);
+ 
++    }
+ 
+ 
+-
++//public void update(final Canvas canvas) {
++//    new CountDownTimer(10000, 1000) {
++//        @Override
++//        public void onTick(long millisUntilFinished) {
+ //
+-//public  void drawing(){
++//        }
+ //
+-//
+-//
+-//}
++//        @Override
++//        public void onFinish() {
++//            Log.d("f","fin");
++//        }
++//    }.start();
+ 
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-}
++//}
++}
+\ No newline at end of file
+diff --git app/src/main/res/drawable-v24/fighter.png app/src/main/res/drawable-v24/fighter.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d1c833404f7f124c194fd32eece2263396de8387
+GIT binary patch
+literal 299
+zc%17D@N?(olHy`uVBq!ia0vp^MnJ5>!2~2-F8xaYQjEnx?oJHr&dIz4a#+$GeH|GX
+zHuiJ>Nn{1`ISV`@iy0V%N<f(LUYdLbQ1F1Ki(^QH``b&7T!#&KTmqjn?e%-V|4eCB
+z<Fb@9I$n=%Y+BMdq5t5gcZnhM-d!oL{p(k|BKp<d&9Am>-(z1IRC3Bm>kezT>hG#Z
+zo#W<boGw}@ceDOXi#&7v`7x(Bi*&KsUtBlNI4ge6Y4HvfvDaTxH%Hu7PhMy|XU5Tg
+zHC5LhwrfWAeihnq>vZ3z2wSOX2c?)6I!tps{3p^_>e<O6Mn(2%i`#BS3QDCVwl-a0
+t&~`k$E^?;SwIol67Y(XcY$UZ(nfEuwp1zsf{TJvL22WQ%mvv4FO#s~qdaeKf
+
+diff --git app/src/main/res/drawable/fighter.png app/src/main/res/drawable/fighter.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d1c833404f7f124c194fd32eece2263396de8387
+GIT binary patch
+literal 299
+zc%17D@N?(olHy`uVBq!ia0vp^MnJ5>!2~2-F8xaYQjEnx?oJHr&dIz4a#+$GeH|GX
+zHuiJ>Nn{1`ISV`@iy0V%N<f(LUYdLbQ1F1Ki(^QH``b&7T!#&KTmqjn?e%-V|4eCB
+z<Fb@9I$n=%Y+BMdq5t5gcZnhM-d!oL{p(k|BKp<d&9Am>-(z1IRC3Bm>kezT>hG#Z
+zo#W<boGw}@ceDOXi#&7v`7x(Bi*&KsUtBlNI4ge6Y4HvfvDaTxH%Hu7PhMy|XU5Tg
+zHC5LhwrfWAeihnq>vZ3z2wSOX2c?)6I!tps{3p^_>e<O6Mn(2%i`#BS3QDCVwl-a0
+t&~`k$E^?;SwIol67Y(XcY$UZ(nfEuwp1zsf{TJvL22WQ%mvv4FO#s~qdaeKf
+
