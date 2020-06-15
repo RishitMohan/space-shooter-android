@@ -7,8 +7,10 @@ import android.graphics.Paint;
 
 import android.view.MotionEvent;
 
+import com.example.mygame.motherMethods.circle;
 
-public class RishitController {
+
+public class RishitController implements circle {
 
 
     public static boolean MovementAllowed;////initially false
@@ -25,7 +27,7 @@ public class RishitController {
 
     public RishitController(Gameclass gameclass) {
         context = gameclass.getContext();
-        //you dont declare variables in constructor
+
     }
 
 
@@ -44,11 +46,11 @@ public class RishitController {
 
     }
 
-
+@Override
     public void drawing(Canvas canvas) {
 
 
-        innerCircle.setColor(Color.GREEN);
+        innerCircle.setColor(Color.GRAY);
         OuterCircle.setColor(Color.GRAY);
 
         height = canvas.getHeight();
