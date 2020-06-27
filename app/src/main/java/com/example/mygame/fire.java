@@ -5,53 +5,61 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-public class fire {
-    public float fireX, fireY;
-    // constructor
+import com.example.mygame.motherMethods.circle;
+
+public class fire implements circle {
+    public static Boolean bmw = true;
+    public static float fireX;
+          public static float fireY;
+    Paint paint = new Paint();
+
+
+
+
+
     fire(float x, float y) {
-        //Gameloop.update();
+
         fireX = x;
         fireY = y;
-        //y=Player.y;
+       setPos();
     }
 
-    Paint paint = new Paint();
- public static Boolean bmw=true;
-    public void drawingBullets(Canvas canvas) {
-//if(Gameloop.noOfMovements<13390) {
+
+    void setPos(){
+        fireX=fireX+60;
+        fireY=fireY+30;
+    }
 
 
+    @Override
+    public void drawing(Canvas canvas) {
 
 
         paint.setColor(Color.WHITE);
 
 
-        fireX=fireX+37;
-
-        //int ink = ContextCompat.getColor( R.color.colorPrimary);
-//if(fireX<1000)
-        canvas.drawCircle((fireX+60), (fireY+30), 10, paint);
-       // canvas.drawCircle(fireX, (fireY), 10, paint);
-        Log.d("mm","x is"+ fireX);
+        fireX = fireX + 37;
 
 
-    }
+        canvas.drawCircle(fireX,fireY, 10, paint);
 
-public void reset   (){
-
-    if(fireX>2500)
-    {
-        bmw=false;
-      fireX=Player.x;
-      fireY=Player.y;
-bmw=true;
-
+        Log.d("mm", "x is  :   " + (fireX+60)+ " y is :  "+(fireY+30));
 
 
     }
-}
+
+    public void reset() {
+
+        if (fireX > 2500) {
+            bmw = false;
+            fireX = Player.x;
+            fireY = Player.y;
+            setPos();
+            bmw = true;
 
 
+        }
+    }
 
 
 }

@@ -10,24 +10,22 @@ import android.util.Log;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.mygame.motherMethods.circle;
+
 import java.util.ArrayList;
 
-class Player {
+class Player implements circle {
     public static float x = 500;
     public static float y = 500;
-    //ArrayList<fire> bullets = new ArrayList<fire>()
-    private float z = 50;
-
-    Context context;
     public Bitmap bitmapp;
+    Context context;
+    Paint paint = new Paint();
+    private float z = 50;
 
     Player(Gameclass gc) {
         this.context = gc.getContext();
 
     }
-
-    Paint paint = new Paint();
-
 
     public static void moving() {
 
@@ -36,27 +34,25 @@ class Player {
         y = y + (RishitController.deltaY);
     }
 
-
+@Override
     public void drawing(Canvas canvas) {
         try {
             bitmapp = BitmapFactory.decodeResource(context.getResources(), R.drawable.fighter);
 
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("two", "in initialising bitmap");
+
         }
 
-//
-//          Gameloop.shootX= (int) x;
-//          Gameloop.shootY=(int)y;
+
         try {
             canvas.drawBitmap(bitmapp, x, y, null);
 
-            //Log.d("pink", "xpink : " + x);
+
         } catch (Exception e) {
             canvas.drawCircle(x, y, z, paint);
             e.printStackTrace();
-            Log.d("one", "in draw bitmap");
+
         }
 
 

@@ -13,6 +13,7 @@ class Gameloop extends Thread {
     Gameclass gameclass;
     Canvas canvasRishit;
     static int noOfMovements;
+
     public Gameloop(Gameclass gameclass, SurfaceHolder surfaceHolder) {
         this.gameclass = gameclass;
         this.surfaceHolder = surfaceHolder;
@@ -22,22 +23,17 @@ class Gameloop extends Thread {
         this.running = running;
 
     }
-//   static float  shootX = Player.x;
-//
-//    static  float shootY = Player.y;
-//
-//    public static void update() {
-//         //  shootX = Player.x;
-//
-//          shootY = Player.y;
-//    }
+
+
+
+
     @Override
     public void run() {
         super.run();
 
         while (running) {
             noOfMovements++;
-//shootX++;
+
 
             try {
                 canvasRishit = surfaceHolder.lockCanvas();
