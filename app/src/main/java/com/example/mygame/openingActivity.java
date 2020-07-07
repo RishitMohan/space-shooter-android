@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class openingActivity extends AppCompatActivity {
 Button button,button_1;
+
 MediaPlayer mediaPlayer;
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,9 @@ button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent intent=new Intent(openingActivity.this,MainActivity.class);
+
         startActivity(intent);
+
     }
 });
 
@@ -34,7 +37,9 @@ button.setOnClickListener(new View.OnClickListener() {
     button_1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            System.exit(0);
+        //    System.exit(0);
+       mediaPlayer.stop();
+        finish();
         }
     });
 

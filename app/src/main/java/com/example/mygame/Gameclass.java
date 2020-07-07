@@ -26,7 +26,8 @@ deigning Designing;
 
         this.context = context;
         rishitController = new RishitController(this);
-      enemy=new enemy(this);
+      enemy=new enemy(this,1344,250,0.5f);
+
         Designing=new deigning(this);
         player = new Player(this);
         gameloop = new Gameloop(this, surfaceHolder);

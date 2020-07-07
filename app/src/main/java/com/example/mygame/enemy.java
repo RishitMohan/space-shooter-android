@@ -14,33 +14,35 @@ import java.util.Random;
 import static com.example.mygame.Player.x;
 
 public class enemy implements circle {
+Gameclass gameclass;
     Random random = new Random();
+float enemyX,enemyY;
     Paint paint = new Paint();
-    float enemyX = 1344, enemyY = 250;
+
     double sumOfRadius=25+10;
 public static final String MSG ="com.example.mygame@points";
- static  float points=  0.5f;
- Boolean check=true;
+ static  float points;
+ static Boolean check=true;
 int LowerBound=50;
- int  maxHeight;
+  int  maxHeight;
    Context context;
-enemy(Gameclass gameclass){
+ int color=Color.BLUE;
+private  int pass;
+enemy(Gameclass gameclass,float enemyX,float enemyY,float points){
     context=gameclass.getContext();
+this.enemyX=enemyX;
+this.enemyY=enemyY;
+this.points=points;
 }
+
 
     @Override
     public void drawing(Canvas canvas) {
+//
 
-     paint.setColor(Color.MAGENTA);
+paint.setColor(color);
      maxHeight = random.nextInt(canvas.getHeight());
-
-
-
-         //   reset();
-//        }
-
-
-        enemyX =  enemyX - (points*0.5f);
+     enemyX =  enemyX - (points*0.5f);
 
         if(check) {
             canvas.drawCircle(enemyX, enemyY, 25, paint);
@@ -56,7 +58,7 @@ enemy(Gameclass gameclass){
 
 
 //        Distance between centers of enemy and bullet
-        Log.d("firex","is "+fire.fireX+"enemyx is "  +enemyX);
+
 
 double distance=
 
@@ -82,8 +84,9 @@ intent.putExtra(MSG,points);
 
 
 
-    public void reset()
-{
+    public  void reset()
+{  pass=random.nextInt(5);
+    changeColor();
      int upperBound=100;
 
         enemyX = 1334;
@@ -92,6 +95,25 @@ intent.putExtra(MSG,points);
     check=true;
 
 
+
+}
+
+private  void changeColor(){
+    if(pass==0){
+        color=Color.RED;
+    }
+else if(pass==1){
+    color=Color.GREEN;
+    }
+else if (pass==2){
+    color=Color.YELLOW;
+}
+else if (pass==3){
+    color=Color.MAGENTA;
+    }
+else if(pass==4){
+    color=Color.BLUE;
+    }
 
 }
 
@@ -104,8 +126,11 @@ Log.d("points","points are : "+ points);
 
 
 }
-
-
+/////////when user clicks on exit & then play again//future functionality point al
+//static void reload(){
+//    enemy enemy=new enemy();
+//    enemy.reset();
+//}
 
 
 

@@ -38,7 +38,7 @@ public class fire implements circle {
         paint.setColor(Color.WHITE);
 
 
-        fireX = fireX + 37;
+        fireX = fireX + 37+(int)((enemy.points)/2);
 
 
         canvas.drawCircle(fireX,fireY, 10, paint);
